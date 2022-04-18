@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Baraka Stocks</string>
+
+    <!-- Image description -->
+    <string name="arrow_icon_image_description">Arrow Stock State</string>
+    <string name="news_image_description">News Image</string>
+
+
+    <!-- Stocks list -->
+    <string name="stocks_label">Stocks:</string>
+    <string name="stock_price">%.2f USD</string>
+
+    <!-- News list -->
+    <string name="news_label">News:</string>
+    <string name="main_news_label">Main News:</string>
+
+    <!-- Errors-->
+    <string name="generic_error">Something is technically wrong. Please try again Later</string>
+
+</resources>
