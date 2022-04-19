@@ -149,7 +149,6 @@ class StocksFragment : Fragment() {
 
     private fun hideLoading() {
         binding.swiperefresh.isRefreshing = false
-
     }
 
     override fun onDestroyView() {

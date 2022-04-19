@@ -32,11 +32,13 @@ class NewsRepositoryImpl @Inject constructor(
 
             //Get data from local database and Transform the data from ArticleEntity to Article Domain model
             try {
-                var cachedArticles: List<Article>
-                withContext(dispatcherProvider.io) {
-                    cachedArticles = dao.getArticles().toArticleList()
+                var cachedArticles: List<Article> = emptyList()
+                if (!forceFetchFromRemote) {
+                    withContext(dispatcherProvider.io) {
+                        cachedArticles = dao.getArticles().toArticleList()
+                    }
                 }
-                if (cachedArticles.isEmpty() || forceFetchFromRemote) {
+                if (forceFetchFromRemote || cachedArticles.isEmpty()) {
                     val responseArticle = try {
                         withContext(dispatcherProvider.io) {
                             api.getNews()
@@ -55,6 +57,7 @@ class NewsRepositoryImpl @Inject constructor(
                         emit(Resource.Error(message = "Oops... Some error happened. We could not load the data. Please try again later."))
                         return@flow
                     }
+
                     responseArticle.body().let { articleRemote ->
                         //Update the local cache
                         withContext(dispatcherProvider.io) {

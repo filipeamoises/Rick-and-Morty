@@ -62,10 +62,11 @@ class StockRepositoryImpl @Inject constructor(
 
             //Get data from local database and Transform the data from StockEntity to Stock Domain model
             try {
-                var cachedStocks: List<Stock>
-
-                withContext(dispatcherProvider.io) {
-                    cachedStocks = dao.listStocks().map { it.toStock() }
+                var cachedStocks: List<Stock> = emptyList()
+                if (!forceFetchFromRemote) {
+                    withContext(dispatcherProvider.io) {
+                        cachedStocks = dao.listStocks().map { it.toStock() }
+                    }
                 }
                 if (cachedStocks.isEmpty() || forceFetchFromRemote) {
                     getRemoteStocks().collect { remoteStocks ->
@@ -94,10 +95,11 @@ class StockRepositoryImpl @Inject constructor(
 
             //Get data from local database and Transform the data from StockEntity to Stock Domain model
             try {
-                var cachedStocks: List<Stock>
-
-                withContext(dispatcherProvider.io) {
-                    cachedStocks = dao.searchStock(symbol).map { it.toStock() }
+                var cachedStocks: List<Stock> = emptyList()
+                if (!forceFetchFromRemote) {
+                    withContext(dispatcherProvider.io) {
+                        cachedStocks = dao.searchStock(symbol).map { it.toStock() }
+                    }
                 }
                 if (cachedStocks.isEmpty() || forceFetchFromRemote) {
                     getRemoteStocks().collect { remoteStocks ->

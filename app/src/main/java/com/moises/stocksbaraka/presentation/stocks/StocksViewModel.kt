@@ -49,7 +49,7 @@ class StocksViewModel @Inject constructor(private val stockRepository: StockRepo
 
     init {
         fetchStocks(false)
-        fetchNews(false)
+        fetchNews(true)
     }
 
     fun getStockPrice(symbol: String) {

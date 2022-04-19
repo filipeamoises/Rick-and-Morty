@@ -4,8 +4,8 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [ArticleEntity::class, StockEntity::class, SourceEntity::class],
-    version = 1
+    entities = [ArticleEntity::class, StockEntity::class],
+    version = 2
 )
 abstract class StockDatabase : RoomDatabase() {
     abstract val articleDao: ArticleDao
