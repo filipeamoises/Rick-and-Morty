@@ -10,10 +10,17 @@
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_down.xml" value="0.2425" />
         <entry key="app/src/main/res/drawable/ic_launch.xml" value="0.2235" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2235" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1725" />
+        <entry key="app/src/main/res/drawable/rick_and_morty_logo.xml" value="0.177" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/character_item.xml" value="0.16822916666666668" />
+        <entry key="app/src/main/res/layout/episodes_item.xml" value="0.30570652173913043" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_stocks.xml" value="0.16615384615384615" />
+        <entry key="app/src/main/res/layout/load_state_item.xml" value="0.32916666666666666" />
         <entry key="app/src/main/res/layout/main_news_item.xml" value="0.28489583333333335" />
         <entry key="app/src/main/res/layout/news_item.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/separator_season_item.xml" value="0.31354166666666666" />
         <entry key="app/src/main/res/layout/stocks_item.xml" value="0.3015625" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.225" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.225" />

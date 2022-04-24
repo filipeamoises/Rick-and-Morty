@@ -10,7 +10,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.moises.stocksbaraka"
+        applicationId "com.moises.rickymorty"
         minSdk 26
         targetSdk 32
         versionCode 1
@@ -26,12 +26,14 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", "\"https://rickandmortyapi.com\""
         }
         debug {
             debuggable true
             multiDexEnabled true
             shrinkResources false
             minifyEnabled false
+            buildConfigField "String", "BASE_URL", "\"https://rickandmortyapi.com\""
         }
     }
 
@@ -64,6 +66,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.paging:paging-runtime:3.1.1'
 
     //Navigation Fragments
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
@@ -80,7 +83,6 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:1.0.0"
     implementation "androidx.hilt:hilt-navigation-fragment:1.0.0"
 
-
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.3"
@@ -90,11 +92,9 @@ dependencies {
     //Glide image loader
     implementation 'com.github.bumptech.glide:glide:4.12.0'
 
-    // CSV Parser
-    implementation 'com.opencsv:opencsv:5.5.2'
-
     // DB Room
     implementation "androidx.room:room-runtime:2.4.2"
+    implementation "androidx.room:room-paging:2.4.2"
     kapt "androidx.room:room-compiler:2.4.2"
 
     // Kotlin Extensions and Coroutines support for Room
