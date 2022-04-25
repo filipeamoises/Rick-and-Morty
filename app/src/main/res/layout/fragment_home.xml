@@ -37,7 +37,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_characters"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/list_characters_height"
         android:foregroundGravity="center"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -45,6 +45,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_characters_label"
         tools:listitem="@layout/character_item" />
+
+    <LinearLayout
+        android:id="@+id/ll_character_loading"
+        android:layout_width="@dimen/card_width"
+        android:layout_height="@dimen/list_characters_height"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        android:padding="@dimen/dimens_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_characters_label">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/bt_retry_characters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/bt_retry" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_episodes_label"
@@ -58,7 +82,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_characters" />
+        app:layout_constraintTop_toBottomOf="@+id/ll_character_loading" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
@@ -73,8 +97,8 @@
             android:id="@+id/rv_episodes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
             android:layout_marginBottom="@dimen/list_item_height"
+            android:foregroundGravity="center"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"

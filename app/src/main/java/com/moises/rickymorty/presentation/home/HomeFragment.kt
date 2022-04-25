@@ -9,9 +9,7 @@ import android.widget.Toast
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -63,7 +61,7 @@ class HomeFragment : Fragment() {
         episodesAdapter.addLoadStateListener { loadState ->
             val refreshState = loadState.source.refresh
             binding.swiperefresh.isRefreshing = refreshState is LoadState.Loading
-            handleError(loadState)
+            handleErrorEpisodesList(loadState)
         }
 
         //Include list divider
@@ -78,14 +76,32 @@ class HomeFragment : Fragment() {
         binding.rvCharacters.adapter = charactersAdapter.withLoadStateHeaderAndFooter(footer = LoadItemStateAdapter { charactersAdapter.retry() },
             header = LoadItemStateAdapter { charactersAdapter.retry() })
 
+        binding.btRetryCharacters.setOnClickListener { charactersAdapter.retry() }
+
         charactersAdapter.addLoadStateListener { loadState ->
-            handleError(loadState)
+            val refreshState = loadState.source.refresh
+            binding.llCharacterLoading.visibility = if(refreshState is LoadState.Loading) View.VISIBLE else View.INVISIBLE
+            binding.rvCharacters.visibility =  if(refreshState is LoadState.Loading) View.GONE else View.VISIBLE
+            binding.progressBar.visibility = if(refreshState is LoadState.Loading) View.VISIBLE else View.GONE
+            binding.btRetryCharacters.visibility = View.GONE
+            handleErrorCharactersList(loadState)
         }
     }
 
-    private fun handleError(loadState: CombinedLoadStates) {
+    private fun handleErrorEpisodesList(loadState: CombinedLoadStates) {
         if (loadState.refresh is LoadState.Error || loadState.append is LoadState.Error || loadState.prepend is LoadState.Error) {
-            context?.let { Toast.makeText(it, getString(R.string.generic_error), Toast.LENGTH_SHORT).show() }
+            context?.let { Toast.makeText(it, getString(R.string.generic_error_episodes), Toast.LENGTH_SHORT).show() }
+        }
+    }
+
+    private fun handleErrorCharactersList(loadState: CombinedLoadStates) {
+        if (loadState.refresh is LoadState.Error || loadState.append is LoadState.Error || loadState.prepend is LoadState.Error) {
+            if(loadState.refresh is LoadState.Error) {
+                binding.llCharacterLoading.visibility = View.VISIBLE
+                binding.btRetryCharacters.visibility = View.VISIBLE
+                binding.progressBar.visibility = View.GONE
+            }
+            context?.let { Toast.makeText(it, getString(R.string.generic_error_episodes_character), Toast.LENGTH_SHORT).show() }
         }
     }
 
