@@ -1,21 +1,9 @@
 <resources>
     <string name="app_name">Ricky Morty Info</string>
-
-    <!-- Image description -->
-    <string name="character_image_description">Character Image</string>
-    <string name="logo_image_description">Ricky and Morty logo</string>
-
-    <!-- List -->
-    <string name="characters_label">Buddies of Morty or enemies…</string>
-    <string name="bt_retry">Retry</string>
-    <string name="episode_label">Episodes:</string>
-    <string name="available_date">Available in: %s</string>
-
-    <!-- Errors-->
-    <string name="generic_error">Something is technically wrong. I need to call Rick!</string>
-    <string name="generic_error_episodes">Something is technically wrong with our episodes. I need to call Rick!</string>
-    <string name="generic_error_episodes_character">Something is technically wrong with buddies List. I need to call Morty!</string>
-
-    <string name="connection_error">Morty looks like we lost internet connection</string>
+    <string name="logo_image_description">Ricky Morty logo image</string>
+    <!-- Fragments -->
+    <string name="fragment_list_characters">List Characters</string>
+    <string name="fragment_detail_characters">Detail Characters</string>
+    <string name="fragment_list_episodes">List Episodes</string>
 
 </resources>

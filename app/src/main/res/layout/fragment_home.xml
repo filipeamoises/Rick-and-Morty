@@ -20,92 +20,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_characters_label"
-        android:layout_width="match_parent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_characters_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimens_10"
-        android:layout_marginBottom="@dimen/dimens_5"
-        android:elevation="@dimen/cardview_default_elevation"
-        android:text="@string/characters_label"
-        android:textSize="@dimen/text_size_16"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_header" />
+        app:defaultNavHost="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_header"
+        app:navGraph="@navigation/nav_characters_graph" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_characters"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/list_characters_height"
-        android:foregroundGravity="center"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_characters_label"
-        tools:listitem="@layout/character_item" />
-
-    <LinearLayout
-        android:id="@+id/ll_character_loading"
-        android:layout_width="@dimen/card_width"
-        android:layout_height="@dimen/list_characters_height"
-        android:orientation="vertical"
-        android:visibility="invisible"
-        android:padding="@dimen/dimens_5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_characters_label">
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-
-        <Button
-            android:id="@+id/bt_retry_characters"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/bt_retry" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_episodes_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimens_10"
-        android:layout_marginBottom="@dimen/dimens_5"
-        android:elevation="@dimen/cardview_default_elevation"
-        android:text="@string/episode_label"
-        android:textSize="@dimen/text_size_16"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_character_loading" />
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swiperefresh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/list_item_height"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_episodes_label">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_episodes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/list_item_height"
-            android:foregroundGravity="center"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_episodes_label"
-            tools:listitem="@layout/episodes_item" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_episodes_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nav_characters_fragment"
+        app:navGraph="@navigation/nav_episodes_graph" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

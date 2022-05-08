@@ -24,6 +24,12 @@
         <entry key="app/src/main/res/layout/stocks_item.xml" value="0.3015625" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.225" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.225" />
+        <entry key="feature/characters/src/main/res/layout/character_item.xml" value="0.25729166666666664" />
+        <entry key="feature/characters/src/main/res/layout/fragment_list_characters.xml" value="0.25729166666666664" />
+        <entry key="feature/characters/src/main/res/layout/load_state_item.xml" value="0.25729166666666664" />
+        <entry key="feature/episodes/src/main/res/layout/episodes_item.xml" value="0.32916666666666666" />
+        <entry key="feature/episodes/src/main/res/layout/fragment_list_episodes.xml" value="0.25729166666666664" />
+        <entry key="feature/episodes/src/main/res/layout/load_state_item.xml" value="0.25729166666666664" />
       </map>
     </option>
   </component>

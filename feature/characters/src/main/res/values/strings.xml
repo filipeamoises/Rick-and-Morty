@@ -1,0 +1,16 @@
+<resources>
+    <!-- Image description -->
+    <string name="character_image_description">Character Image</string>
+
+    <!-- List -->
+    <string name="characters_label">Buddies of Morty or enemies…</string>
+    <string name="bt_retry">Retry</string>
+
+    <!-- Errors-->
+    <string name="generic_error">Something is technically wrong. I need to call Rick!</string>
+    <string name="generic_error_episodes">Something is technically wrong with our episodes. I need to call Rick!</string>
+    <string name="generic_error_episodes_character">Something is technically wrong with buddies List. I need to call Morty!</string>
+
+    <string name="connection_error">Morty looks like we lost internet connection</string>
+
+</resources>
