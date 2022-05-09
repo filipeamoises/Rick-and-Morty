@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@+id/detailCharacterFragment"
+    android:id="@+id/nav_graph_detail_character.xml">
+    <fragment
+        android:id="@+id/detailCharacterFragment"
+        android:name="com.moises.characters.presentation.detail.DetailCharacterFragment"
+        tools:layout="@layout/fragment_detail_character"
+        android:label="@string/fragment_detail_characters" >
+        <argument
+            android:name="characterIdArgs"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+</navigation>

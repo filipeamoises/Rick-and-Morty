@@ -2,7 +2,7 @@ package com.moises.characters.data.mapper
 
 import com.moises.characters.data.local.CharacterEntity
 import com.moises.characters.data.remote.dto.CharacterDto
-import com.moises.characters.domain.Character
+import com.moises.characters.domain.model.Character
 
 
 fun CharacterEntity.toCharacter(): Character {

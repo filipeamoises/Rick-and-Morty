@@ -6,8 +6,9 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.moises.characters.databinding.CharacterItemBinding
+import com.moises.characters.domain.model.Character
 
-class CharactersRecycleViewAdapter : PagingDataAdapter<com.moises.characters.domain.Character, CharactersRecycleViewAdapter.CharactersViewHolder>(COMPARATOR) {
+class CharactersRecycleViewAdapter(private var clickItem: ((Character) -> Unit)) : PagingDataAdapter<Character, CharactersRecycleViewAdapter.CharactersViewHolder>(COMPARATOR) {
 
     inner class CharactersViewHolder(val viewDataBinding: CharacterItemBinding) : RecyclerView.ViewHolder(viewDataBinding.root)
 
@@ -18,14 +19,15 @@ class CharactersRecycleViewAdapter : PagingDataAdapter<com.moises.characters.dom
 
     override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) {
         holder.viewDataBinding.characterItem = getItem(position)
+        holder.viewDataBinding.root.setOnClickListener { getItem(position)?.let { character -> clickItem(character) } }
     }
 
     companion object {
-        val COMPARATOR = object : DiffUtil.ItemCallback<com.moises.characters.domain.Character>() {
-            override fun areContentsTheSame(oldItem: com.moises.characters.domain.Character, newItem: com.moises.characters.domain.Character): Boolean =
+        val COMPARATOR = object : DiffUtil.ItemCallback<Character>() {
+            override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean =
                 oldItem.name == newItem.name
 
-            override fun areItemsTheSame(oldItem: com.moises.characters.domain.Character, newItem: com.moises.characters.domain.Character): Boolean =
+            override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean =
                 oldItem.id == newItem.id
         }
     }

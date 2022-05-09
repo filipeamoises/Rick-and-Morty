@@ -1,7 +1,7 @@
 package com.moises.characters.di
 
 import com.moises.characters.data.repository.CharacterRepositoryImpl
-import com.moises.characters.domain.CharacterRepository
+import com.moises.characters.domain.repository.CharacterRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

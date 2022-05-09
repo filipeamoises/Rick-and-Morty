@@ -62,6 +62,10 @@ dependencies {
         //Layout
         implementation(contraintLayout)
 
+        //Navigation Fragments
+        implementation(navigationFragmentKtx)
+        implementation(navigationUiKtx)
+
         // DB Room
         implementation(roomRuntime)
         implementation(roomPaging)

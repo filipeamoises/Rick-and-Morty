@@ -26,16 +26,9 @@ class CharacterModule {
         ).build()
     }
 
-
     @Provides
     @Singleton
     fun provideCharacterApi(): CharacterApi {
         return buildRetrofit().create()
     }
-
-    //It is not necessary create a adapter injection by the complexity of this project and the adapter use
-    // but it was created just for showing knowledge proposal
-    @Provides
-    @Singleton
-    fun provideCharactersAdapter(): CharactersRecycleViewAdapter = CharactersRecycleViewAdapter()
 }

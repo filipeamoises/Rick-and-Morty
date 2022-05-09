@@ -1,7 +1,7 @@
 package com.moises.characters.presentation.list
 
 import androidx.lifecycle.ViewModel
-import com.moises.characters.domain.CharacterRepository
+import com.moises.characters.domain.repository.CharacterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

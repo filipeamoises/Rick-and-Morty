@@ -7,5 +7,5 @@
     <fragment
         android:id="@+id/episodesFragment"
         android:name="com.moises.episodes.presentation.list.EpisodesFragment"
-        android:label="fragment_home"/>
+        android:label="@string/fragment_list_episodes"/>
 </navigation>

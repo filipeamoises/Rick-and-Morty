@@ -8,4 +8,5 @@
         android:id="@+id/listCharactersFragment"
         android:name="com.moises.characters.presentation.list.ListCharactersFragment"
         android:label="fragment_list_characters"/>
+
 </navigation>

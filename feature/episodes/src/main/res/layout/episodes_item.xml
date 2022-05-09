@@ -24,7 +24,7 @@
             android:layout_margin="@dimen/dimens_5"
             android:layout_marginEnd="@dimen/dimens_10"
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="1"
             android:text="@{episodeItem.name}"
             android:textAlignment="textStart"
             android:textColor="@android:color/black"

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="characterItem"
-            type="com.moises.characters.domain.Character" />
+            type="com.moises.characters.domain.model.Character" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

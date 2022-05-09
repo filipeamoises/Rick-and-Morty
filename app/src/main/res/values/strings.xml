@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Ricky Morty Info</string>
     <string name="logo_image_description">Ricky Morty logo image</string>
+
     <!-- Fragments -->
+    <string name="fragment_home">Home</string>
     <string name="fragment_list_characters">List Characters</string>
-    <string name="fragment_detail_characters">Detail Characters</string>
     <string name="fragment_list_episodes">List Episodes</string>
 
 </resources>

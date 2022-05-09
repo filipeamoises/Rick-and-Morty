@@ -1,4 +1,4 @@
-package com.moises.characters.domain
+package com.moises.characters.domain.model
 
 
 data class Character(

@@ -4,6 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("kotlin-parcelize")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -56,7 +57,6 @@ dependencies {
         implementation(projects.feature.characters)
         implementation(projects.feature.episodes)
 
-
         //AndroidX
         implementation("androidx.core:core-ktx:1.7.0")
         implementation("androidx.appcompat:appcompat:1.4.1")
@@ -68,9 +68,6 @@ dependencies {
         //Navigation Fragments
         implementation(navigationFragmentKtx)
         implementation(navigationUiKtx)
-
-//        // Feature module Support
-//        implementation("androidx.navigation:navigation-dynamic-features-fragment:2.4.2")
 
         //Hilt Dependencies injection
         implementation("com.google.dagger:hilt-android:2.40.5")
