@@ -47,9 +47,10 @@
 # Getting started
 
 ### Steps 
-1. Download this repository extract and open the folder
-2. On `app/build.gradle`, update the dependencies Android Studio suggests
-3. Run the project 
+1. Download this repository extract 
+2. Open the project folder on Android Studio
+3. On `app/build.gradle`, update the dependencies Android Studio suggests
+4. Run the project 
 
 And you're ready to see all Ricky and Morty informations.
 
