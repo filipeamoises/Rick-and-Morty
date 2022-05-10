@@ -14,10 +14,11 @@
 
 
 ## App Architecture
+- Multi Module project(common, features and app)
 - Data (for database and remote API)
 - Domain (for business logic and models)
 - Presentation (for UI logic, with MVVM)
-- Multi Module project(common, features and app)
+
 
 
  
@@ -42,6 +43,7 @@
 - SQLite Database with [Room](https://developer.android.com/jetpack/androidx/releases/room)
 - Rest API consume with [Retrofit](https://square.github.io/retrofit/)
 - View binding with [Data Binding](https://developer.android.com/topic/libraries/data-binding)
+- All gradle files are using Kotlin
 
 
 # Getting started
