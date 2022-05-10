@@ -1,4 +1,4 @@
- <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg" alt="Rick Morty Logo"/>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg" alt="Rick Morty Logo" width="300" />
  
  
 ## Authors:
