@@ -7,15 +7,20 @@
 - Presentation (for UI logic, with MVVM)
 - Multi Module project(common, features and app)
 
+    -app
+    -buildSrc 
+    -common
+    -feature
+     --character
+     --episodes
 
- <img src="https://miro.medium.com/max/1400/0*vnWgSTVC8qoJdusd.png" alt="ArchiTecture logo"/>
  
 ## In this app you can
 - List all Rick and Morty characters on a infinite scroll cached list 
 - Check the details from the character by clicking in some character on list
 - List all episodes from Rick and Morty on a infinite scroll cached list
 
- <img src="https://miro.medium.com/max/1400/0*vnWgSTVC8qoJdusd.png" alt="ArchiTecture logo"/>
+ <img src="images/rickymortyapp.gif" alt="App Demonstration"/>
 
 
 ## Tests
