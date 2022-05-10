@@ -9,6 +9,4 @@ import dagger.hilt.components.SingletonComponent
 // If had more activities I could create a module for a specific activity
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
-
-}
+object AppModule

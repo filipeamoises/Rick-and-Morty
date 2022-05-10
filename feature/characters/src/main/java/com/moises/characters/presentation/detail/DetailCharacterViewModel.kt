@@ -35,7 +35,6 @@ class DetailCharacterViewModel @Inject constructor(private val characterReposito
                     is Resource.Loading -> {
                         DetailCharacterViewState.Loading
                     }
-
                 }
             }
         }

@@ -60,9 +60,11 @@ class ListCharactersFragment : Fragment() {
         charactersAdapter.addLoadStateListener { loadState ->
             val refreshState = loadState.source.refresh
             binding.llCharacterLoading.visibility = if (refreshState is LoadState.Loading) View.VISIBLE else View.INVISIBLE
-           // binding.rvCharacters.visibility = if (refreshState is LoadState.Loading) View.GONE else View.VISIBLE
             binding.progressBar.visibility = if (refreshState is LoadState.Loading) View.VISIBLE else View.GONE
             binding.btRetryCharacters.visibility = View.GONE
+
+            if (refreshState !is LoadState.Loading)
+                binding.rvCharacters.visibility = View.VISIBLE
 
             handleErrorCharactersList(loadState)
         }

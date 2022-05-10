@@ -1,43 +1,52 @@
 object Versions {
-    val compileSdk = 32
-    val minSdk = 26
-    val targetSdk = 32
-    val versionCode = 1
-    val versionName = "1.0"
+    const val  gradle = "7.1.3"
+    const val  compileSdk = 32
+    const val  minSdk = 26
+    const val  targetSdk = 32
+    const val  versionCode = 1
+    const val  versionName = "1.0"
 
-    val coreKtx = "1.7.0"
-    val appCompat = "1.4.1"
-    val materialDesign = "1.6.0"
-    val contraintLayout = "2.1.3"
-    val activityKtx = "1.4.0"
-    val androidXLifecycle = "2.4.1"
-    val swipeRefreshLayout = "1.1.0"
-    val pagingRuntime = "3.1.1"
+    const val  coreKtx = "1.7.0"
+    const val  appCompat = "1.4.1"
+    const val  materialDesign = "1.6.0"
+    const val  constraintLayout = "2.1.3"
+    const val  activityKtx = "1.4.0"
+    const val  androidXLifecycle = "2.4.1"
+    const val  swipeRefreshLayout = "1.1.0"
+    const val  pagingRuntime = "3.1.1"
 
     //Navigation Fragments
-    val navVersion = "2.4.2"
+    const val  navVersion = "2.4.2"
 
     //Hilt Dependencies injection
-    val hilt = "2.40.5"
-    val hiltCompiler = "1.0.0"
-    val legacySupport = "1.0.0"
+    const val  hilt = "2.40.5"
+    const val  hiltCompiler = "1.0.0"
+    const val  legacySupport = "1.0.0"
+    const val  hiltViewModel = "1.0.0-alpha03"
 
     //Glide image loader
-    val glide = "4.12.0"
+    const val  glide = "4.12.0"
 
     // DB Room
-    val room = "2.4.2"
+    const val  room = "2.4.2"
 
     //Test
-    val jUnit = "4.13.2"
-    val jUnitTest = "1.1.3"
-    val testCoreKtx = "1.4.0"
-    val espressoCore = "3.4.0"
-    val mockk = "1.12.3"
+    const val  jUnit = "4.13.2"
+    const val  jUnitTest = "1.1.3"
+    const val  testCoreKtx = "1.4.0"
+    const val  espressoCore = "3.4.0"
+    const val  mockk = "1.12.3"
+    const val  androidXTestRunner = "1.4.0"
+    const val  testRunner = "1.0.2"
+
 
     // Robolectric environment
-    val roboeletric = "4.4"
+    const val  robolectric = "4.4"
 
     //Canary Memory Leak
-    val canaryLeak = "2.8.1"
+    const val  canaryLeak = "2.8.1"
+
+    //Retrofit
+    const val  retrofit = "2.9.0"
+    const val  okhttp = "5.0.0-alpha.3"
 }

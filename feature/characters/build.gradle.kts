@@ -60,7 +60,7 @@ dependencies {
         implementation(pagingRuntime)
 
         //Layout
-        implementation(contraintLayout)
+        implementation(constraintLayout)
 
         //Navigation Fragments
         implementation(navigationFragmentKtx)
@@ -91,5 +91,18 @@ dependencies {
         kapt(kaptHiltCompiler)
         implementation(hiltLifeCycleViewModel)
         kapt(kaptHiltCompiler)
+
+        //Tests
+        testImplementation(jUnit)
+        testImplementation(jUnitTest)
+        testImplementation(testCoreKtx)
+        testImplementation(mockk)
+        testImplementation(jUnitKtx)
+        androidTestImplementation(espressoCore)
+        testImplementation(androidSupportTestRunner)
+        testImplementation(androidSupportTestRules)
+        testImplementation(androidxTestRunner)
+        testImplementation(roboeletric)
+        androidTestImplementation("androidx.test.ext:junit:1.1.1")
     }
 }

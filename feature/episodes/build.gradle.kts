@@ -20,7 +20,12 @@ android {
         dataBinding = true
         viewBinding = true
     }
-    testOptions.unitTests.isIncludeAndroidResources = true
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+        unitTests.isReturnDefaultValues = true
+
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -45,6 +50,7 @@ android {
 dependencies {
     //Modules
     implementation(projects.common)
+
     ProjectDependencies.apply {
         //AndroidX
         implementation(coreKtx)
@@ -60,7 +66,7 @@ dependencies {
         implementation(pagingRuntime)
 
         //Layout
-        implementation(contraintLayout)
+        implementation(constraintLayout)
 
         // DB Room
         implementation(roomRuntime)
@@ -84,5 +90,17 @@ dependencies {
         kapt(kaptHiltCompiler)
         implementation(hiltLifeCycleViewModel)
         kapt(kaptHiltCompiler)
+
+        //Tests
+        testImplementation(jUnit)
+        testImplementation(jUnitTest)
+        testImplementation(testCoreKtx)
+        testImplementation(mockk)
+        testImplementation(jUnitKtx)
+        androidTestImplementation(espressoCore)
+        testImplementation(androidSupportTestRunner)
+        testImplementation(androidSupportTestRules)
+        testImplementation(androidxTestRunner)
+        testImplementation(roboeletric)
     }
 }

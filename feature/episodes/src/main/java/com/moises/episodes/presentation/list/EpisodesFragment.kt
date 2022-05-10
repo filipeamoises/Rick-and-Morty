@@ -52,6 +52,7 @@ class EpisodesFragment : Fragment() {
         episodesAdapter.addLoadStateListener { loadState ->
             val refreshState = loadState.source.refresh
             binding.swiperefresh.isRefreshing = refreshState is LoadState.Loading
+            binding.swiperefresh.isEnabled = false
             handleErrorEpisodesList(loadState)
         }
 
@@ -65,6 +66,8 @@ class EpisodesFragment : Fragment() {
 
     private fun handleErrorEpisodesList(loadState: CombinedLoadStates) {
         if (loadState.refresh is LoadState.Error || loadState.append is LoadState.Error || loadState.prepend is LoadState.Error) {
+            binding.swiperefresh.isRefreshing = false
+            binding.swiperefresh.isEnabled = true
             context?.let { Toast.makeText(it, getString(R.string.generic_error_episodes), Toast.LENGTH_SHORT).show() }
         }
     }

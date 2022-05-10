@@ -6,7 +6,7 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import com.moises.episodes.data.local.EpisodeDatabase
+import com.moises.episodes.data.local.*
 import com.moises.episodes.data.mapper.toEpisodeEntity
 import com.moises.episodes.data.remote.service.EpisodeApi
 import retrofit2.HttpException
@@ -16,16 +16,16 @@ import java.io.IOException
 class EpisodePageRemoteMediator(
     private val db: EpisodeDatabase,
     private val episodeApi: EpisodeApi
-) : RemoteMediator<Int, com.moises.episodes.data.local.EpisodeEntity>() {
+) : RemoteMediator<Int, EpisodeEntity>() {
 
-    private val episodeDao: com.moises.episodes.data.local.EpisodeDao = db.episodeDao
-    private val episodeRemoteKeyDao: com.moises.episodes.data.local.EpisodeRemoteKeyDao = db.episodeRemoteKeyDao
+    private val episodeDao: EpisodeDao = db.episodeDao
+    private val episodeRemoteKeyDao: EpisodeRemoteKeyDao = db.episodeRemoteKeyDao
 
     override suspend fun initialize(): InitializeAction {
         return InitializeAction.LAUNCH_INITIAL_REFRESH
     }
 
-    private suspend fun getRemoteKeyClosestToCurrentPosition(state: PagingState<Int, com.moises.episodes.data.local.EpisodeEntity>): com.moises.episodes.data.local.EpisodeRemoteKeyEntity? {
+    private suspend fun getRemoteKeyClosestToCurrentPosition(state: PagingState<Int, EpisodeEntity>): EpisodeRemoteKeyEntity? {
         return state.anchorPosition?.let { position ->
             state.closestItemToPosition(position)?.id.let { cachedId ->
                 episodeRemoteKeyDao.remoteKeysEpisodeId(cachedId ?: 0)
@@ -33,14 +33,14 @@ class EpisodePageRemoteMediator(
         }
     }
 
-    private suspend fun getLastRemoteKey(state: PagingState<Int, com.moises.episodes.data.local.EpisodeEntity>): com.moises.episodes.data.local.EpisodeRemoteKeyEntity? {
+    private suspend fun getLastRemoteKey(state: PagingState<Int, EpisodeEntity>): EpisodeRemoteKeyEntity? {
         return state.pages
             .lastOrNull { it.data.isNotEmpty() }
             ?.data?.lastOrNull()
             ?.let { it -> it.id?.let { it1 -> episodeRemoteKeyDao.remoteKeysEpisodeId(it1) } }
     }
 
-    private suspend fun getFirstRemoteKey(state: PagingState<Int, com.moises.episodes.data.local.EpisodeEntity>): com.moises.episodes.data.local.EpisodeRemoteKeyEntity? {
+    private suspend fun getFirstRemoteKey(state: PagingState<Int, EpisodeEntity>): EpisodeRemoteKeyEntity? {
         return state.pages
             .firstOrNull { it.data.isNotEmpty() }
             ?.data?.firstOrNull()
@@ -49,7 +49,7 @@ class EpisodePageRemoteMediator(
 
     override suspend fun load(
         loadType: LoadType,
-        state: PagingState<Int, com.moises.episodes.data.local.EpisodeEntity>
+        state: PagingState<Int, EpisodeEntity>
     ): MediatorResult {
         try {
             var pageKey = 1
@@ -95,7 +95,7 @@ class EpisodePageRemoteMediator(
                         }
 
                         val keys = response.body()?.results?.map {
-                            com.moises.episodes.data.local.EpisodeRemoteKeyEntity(it.id, prevKey = prevPageNumber, nextKey = nextPageNumber)
+                            EpisodeRemoteKeyEntity(it.id, prevKey = prevPageNumber, nextKey = nextPageNumber)
                         }
                         if (keys != null) {
                             episodeRemoteKeyDao.insertAll(keys)

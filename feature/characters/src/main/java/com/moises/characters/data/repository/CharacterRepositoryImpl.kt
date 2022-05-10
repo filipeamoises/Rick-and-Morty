@@ -5,6 +5,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.map
 import com.moises.characters.data.local.CharacterDatabase
+import com.moises.characters.data.local.CharacterEntity
 import com.moises.characters.data.mapper.toCharacter
 import com.moises.characters.data.mapper.toCharacterEntity
 import com.moises.characters.data.paging.CharacterPageRemoteMediator
@@ -42,10 +43,10 @@ class CharacterRepositoryImpl @Inject constructor(
             emit(Resource.Loading())
             //Get data from local database if its empty get from remote service
             try {
-                var cachedCharacter: Character? = null
+                var cachedCharacter: CharacterEntity? = null
                 if (!forceRemote) {
                     withContext(dispatcherProvider.io) {
-                        cachedCharacter = db.characterDao.getCharacterById(characterId).toCharacter()
+                        cachedCharacter = db.characterDao.getCharacterById(characterId)
                     }
                 }
 
@@ -79,7 +80,7 @@ class CharacterRepositoryImpl @Inject constructor(
                     }
 
                 } else {
-                    emit(Resource.Success(data = cachedCharacter))
+                    emit(Resource.Success(data = cachedCharacter!!.toCharacter()))
                 }
 
             } catch (e: Exception) {

@@ -12,6 +12,7 @@ import com.moises.characters.data.local.CharacterEntity
 import com.moises.characters.data.local.CharacterRemoteKeyDao
 import com.moises.characters.data.mapper.toCharacterEntity
 import com.moises.characters.data.remote.service.CharacterApi
+import kotlinx.coroutines.delay
 import retrofit2.HttpException
 import java.io.IOException
 

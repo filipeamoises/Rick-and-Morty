@@ -6,6 +6,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.map
 import com.moises.episodes.data.local.EpisodeDatabase
 import com.moises.episodes.data.mapper.toEpisode
+import com.moises.episodes.data.paging.EpisodePageRemoteMediator
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,7 +20,7 @@ class EpisodeRepositoryImpl @Inject constructor(
     @OptIn(ExperimentalPagingApi::class)
     override fun getPagedEpisodes() = Pager(
         config = PagingConfig(20),
-        remoteMediator = com.moises.episodes.data.paging.EpisodePageRemoteMediator(db = db, episodeApi = api)
+        remoteMediator = EpisodePageRemoteMediator(db = db, episodeApi = api)
     ) {
         db.episodeDao.listEpisodes()
     }.flow.map { it.map { item -> item.toEpisode() } }
