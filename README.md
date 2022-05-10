@@ -1,4 +1,16 @@
  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg" alt="Rick Morty Logo"/>
+ 
+ 
+## Authors:
+
+<a href="https://www.instagram.com/filipemoises_/" target="_blank">
+  <img src="https://s.gravatar.com/avatar/fdbb8498a65449571683981c1efc1dff?s=400" width="70" align="left">
+</a>
+
+**Filipe Moises**
+
+  [![Linkedin](https://img.shields.io/badge/-linkedin-0A66C2?logo=linkedin&style=for-the-badge&logoColor=white)](https://www.linkedin.com/in/filipe-moises-18393378/)
+  [![GitHub](https://img.shields.io/badge/-github-E4405F?&logo=github&message=github&style=for-the-badge&logoColor=white&label=filipeamoises)](https://github.com/filipeamoises)
 
 
 ## App Architecture
@@ -7,12 +19,6 @@
 - Presentation (for UI logic, with MVVM)
 - Multi Module project(common, features and app)
 
-    -app
-    -buildSrc 
-    -common
-    -feature
-     --character
-     --episodes
 
  
 ## In this app you can
@@ -20,7 +26,7 @@
 - Check the details from the character by clicking in some character on list
 - List all episodes from Rick and Morty on a infinite scroll cached list
 
- <img src="images/rickymortyapp.gif" alt="App Demonstration"/>
+ <img src="images/rickymortyapp.gif" alt="App Demonstration" width="200"/>
 
 
 ## Tests
@@ -49,4 +55,4 @@ And you're ready to see all Ricky and Morty informations.
 
 
 # More
-If you want to know more get in touch filipe.a.moises@gmail.com
+If you want to know more please get in touch filipe.a.moises@gmail.com
